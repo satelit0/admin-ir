@@ -1,0 +1,53 @@
+object DTM_DATOS: TDTM_DATOS
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Left = 394
+  Top = 313
+  Height = 240
+  Width = 352
+  object IDB_BaseDatos: TIBDatabase
+    DatabaseName = 'localhost:C:\Inventario Record\Data\DATAIR.fdb'
+    Params.Strings = (
+      'lc_ctype=ASCII'
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBT_1
+    IdleTimer = 0
+    SQLDialect = 3
+    TraceFlags = []
+    Left = 32
+    Top = 8
+  end
+  object IBT_1: TIBTransaction
+    Active = False
+    DefaultDatabase = IDB_BaseDatos
+    Params.Strings = (
+      'read_committed'
+      'rec_version'
+      'nowait')
+    AutoStopAction = saNone
+    Left = 104
+    Top = 8
+  end
+  object IBD_Cedulados: TIBDatabase
+    DatabaseName = 'localhost:C:\Inventario Record\Data\CEDULADOSFB.FDB'
+    Params.Strings = (
+      'user_name=sysdba'
+      'password=masterkey')
+    LoginPrompt = False
+    DefaultTransaction = IBT_2
+    IdleTimer = 0
+    SQLDialect = 1
+    TraceFlags = []
+    Left = 32
+    Top = 72
+  end
+  object IBT_2: TIBTransaction
+    Active = False
+    DefaultDatabase = IBD_Cedulados
+    AutoStopAction = saNone
+    Left = 96
+    Top = 72
+  end
+end
